@@ -5,7 +5,7 @@ build-backend = "flit_core.buildapi"
 [project]
 name = "heartslayer"
 version = "0.1.0"
-description = "Standalone Watcher bot for Slay the Spire — three keys → Act 4 → Corrupt Heart."
+description = "Production-grade Slay the Spire Watcher automation: 6 interchangeable strategies, hardened batch ops, offline decision verification, and a full test suite — forked from bottled_ai and evolved into an independent, deployable bot."
 readme = "README.md"
 license = { file = "LICENSE" }
 authors = [{ name = "blrain", email = "helloblrain@gmail.com" }]
