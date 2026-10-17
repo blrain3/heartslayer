@@ -4,7 +4,23 @@
 用法:
     python3 verify_live_run.py <logfile>
 """
+import argparse
 import json, re, sys, glob
+
+_parser = argparse.ArgumentParser(description='Analyze one bottled_ai run log and replay its heart decisions.')
+_parser.add_argument('logfile', help='bottled_ai run log')
+_args = _parser.parse_args()
+
+
+def _exit_with_status_2(exc_type, exc, traceback):
+    if issubclass(exc_type, KeyboardInterrupt):
+        sys.__excepthook__(exc_type, exc, traceback)
+        return
+    print(f'{exc_type.__name__}: {exc}', file=sys.stderr)
+    sys.exit(2)
+
+
+sys.excepthook = _exit_with_status_2
 from rs.machine.state import GameState
 from rs.machine.the_bots_memory_book import TheBotsMemoryBook
 from rs.calculator.interfaces.memory_items import MemoryItem, ResetSchedule, StanceType
@@ -19,10 +35,7 @@ from rs.common.comparators.core.assessment import ComparatorAssessment as CA
 
 
 def main():
-    if len(sys.argv) > 1 and sys.argv[1] in ('--help', '-h'):
-        print(__doc__)
-        sys.exit(0)
-    f = sys.argv[1]
+    f = _args.logfile
     lines = open(f, encoding='utf-8', errors='replace').read().splitlines()
     hi = next((i for i, l in enumerate(lines) if 'Corrupt Heart' in l), None)
     if hi is None:

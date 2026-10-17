@@ -12,7 +12,7 @@ requires-python = ">=3.11"
 dependencies = []
 
 [project.scripts]
-check-shops = "scripts.check-shops:main"
+check-shops = "heartslayer_kit.check_shops:main"
 
 [tool.flit.module]
-name = "scripts.check-shops"
+name = "heartslayer_kit"

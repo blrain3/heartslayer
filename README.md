@@ -26,18 +26,22 @@ docs/      batch archives (kill report, analysis dossiers, incident reports; Chi
 
 ## Requirements
 
-- Linux desktop with a Hyprland session (OCR path uses `grim`; clicking uses `xdotool` on `DISPLAY=:0`)
-- Steam, logged in (`Logged On` in `connection_log.txt`; AutoLogin works)
-- [ModTheSpire](https://github.com/kiooeht/ModTheSpire) + [CommunicationMod](https://github.com/ForgottenArbiter/CommunicationMod) and a [bottled_ai](https://github.com/xaved88/bottled_ai) checkout
-- `bash`, `python3` (3.11+), `grim`, `tesseract` + `tesseract-data-eng`, `xdotool`, systemd user session
+Dependency checklist:
+
+- [ ] Python 3.11+ and Bash
+- [ ] Linux desktop with a Hyprland session, `grim`, `tesseract` + `tesseract-data-eng`, `xdotool`, and a systemd user session
+- [ ] Steam logged in (`Logged On` in `connection_log.txt`; AutoLogin works)
+- [ ] [ModTheSpire](https://github.com/kiooeht/ModTheSpire), [CommunicationMod](https://github.com/ForgottenArbiter/CommunicationMod), and a [bottled_ai](https://github.com/xaved88/bottled_ai) checkout
+
+The Python package has no runtime dependencies. Install it with `python3 -m pip install -e .` to add the `check-shops` command.
 
 Tested on CachyOS/Arch. Other setups work in principle — adjust the display/OCR chain and the environment variables below.
 
 ## Verification
 
 ```bash
-bash -n scripts/*.sh
-python3 -m compileall scripts tools
+bash -n scripts/*.sh && python3 -m compileall scripts tools
+python3 scripts/check-shops.py --help
 ```
 
 ## Usage

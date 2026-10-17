@@ -4,7 +4,24 @@
 用法:
     python3 replay_decision.py <logfile> <end_idx>
 """
+import argparse
 import json, sys, re, glob
+
+_parser = argparse.ArgumentParser(description='Replay one heart-fight decision from a bottled_ai run log.')
+_parser.add_argument('logfile', help='bottled_ai run log')
+_parser.add_argument('end_idx', type=int, help='zero-based end-turn decision index')
+_args = _parser.parse_args()
+
+
+def _exit_with_status_2(exc_type, exc, traceback):
+    if issubclass(exc_type, KeyboardInterrupt):
+        sys.__excepthook__(exc_type, exc, traceback)
+        return
+    print(f'{exc_type.__name__}: {exc}', file=sys.stderr)
+    sys.exit(2)
+
+
+sys.excepthook = _exit_with_status_2
 from rs.machine.state import GameState
 from rs.machine.the_bots_memory_book import TheBotsMemoryBook
 from rs.calculator.enums.card_id import CardId
@@ -18,10 +35,7 @@ from rs.common.comparators.core.assessment import ComparatorAssessment as CA
 
 
 def main():
-    if len(sys.argv) > 1 and sys.argv[1] in ('--help', '-h'):
-        print(__doc__)
-        sys.exit(0)
-    logfile, end_idx = sys.argv[1], int(sys.argv[2])
+    logfile, end_idx = _args.logfile, _args.end_idx
     lines = open(logfile, encoding='utf-8', errors='replace').read().splitlines()
     hi = next(i for i, l in enumerate(lines) if 'Corrupt Heart' in l)
     ends = [i for i in range(hi, len(lines)) if lines[i].startswith('Sending message: end')]

@@ -9,9 +9,3 @@ recoveries
 .DS_Store
 .idea/
 .vscode/
-
-# Editor / OS artifacts
-*.swp
-.DS_Store
-.idea/
-.vscode/
