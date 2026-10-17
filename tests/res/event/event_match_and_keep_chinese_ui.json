@@ -1,0 +1,81 @@
+{
+ "available_commands": [
+  "choose",
+  "wait",
+  "state"
+ ],
+ "ready_for_command": true,
+ "in_game": true,
+ "game_state": {
+  "choice_list": [
+   "normality",
+   "deep breath",
+   "card2",
+   "card3",
+   "card4",
+   "card5"
+  ],
+  "screen_type": "EVENT",
+  "screen_state": {
+   "event_id": "Match and Keep!",
+   "event_name": "????",
+   "body_text": "",
+   "options": [
+    {
+     "choice_index": 0,
+     "disabled": false,
+     "text": "Normality",
+     "label": "Normality"
+    },
+    {
+     "choice_index": 1,
+     "disabled": false,
+     "text": "Deep Breath",
+     "label": "Deep Breath"
+    },
+    {
+     "choice_index": 2,
+     "disabled": false,
+     "text": "card2",
+     "label": "card2"
+    },
+    {
+     "choice_index": 3,
+     "disabled": false,
+     "text": "card3",
+     "label": "card3"
+    },
+    {
+     "choice_index": 4,
+     "disabled": false,
+     "text": "card4",
+     "label": "card4"
+    },
+    {
+     "choice_index": 5,
+     "disabled": false,
+     "text": "card5",
+     "label": "card5"
+    }
+   ]
+  },
+  "seed": 3426447116500222168,
+  "deck": [],
+  "relics": [],
+  "max_hp": 72,
+  "act_boss": "Hexaghost",
+  "gold": 119,
+  "action_phase": "WAITING_ON_USER",
+  "act": 1,
+  "screen_name": "NONE",
+  "room_phase": "EVENT",
+  "is_screen_up": false,
+  "potions": [],
+  "current_hp": 70,
+  "floor": 2,
+  "ascension_level": 0,
+  "class": "WATCHER",
+  "map": [],
+  "room_type": "EventRoom"
+ }
+}
