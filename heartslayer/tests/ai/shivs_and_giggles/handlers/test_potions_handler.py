@@ -1,8 +1,8 @@
 import unittest
 
 from ai.shivs_and_giggles.sg_test_handler_fixture import SgTestHandlerFixture
-from rs.ai.shivs_and_giggles.handlers.potions_handler import PotionsBossHandler
-from rs.common.handlers.common_battle_handler import CommonBattleHandler
+from heartslayer.ai.shivs_and_giggles.handlers.potions_handler import PotionsBossHandler
+from heartslayer.common.handlers.common_battle_handler import CommonBattleHandler
 
 
 class PotionsHandlerTestCase(SgTestHandlerFixture):

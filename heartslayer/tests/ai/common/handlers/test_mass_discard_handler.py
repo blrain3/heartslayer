@@ -1,5 +1,5 @@
 from ai.common.co_test_handler_fixture import CoTestHandlerFixture
-from rs.common.handlers.common_mass_discard_handler import CommonMassDiscardHandler
+from heartslayer.common.handlers.common_mass_discard_handler import CommonMassDiscardHandler
 
 
 class TestMassDiscardHandler(CoTestHandlerFixture):

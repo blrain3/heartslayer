@@ -4,11 +4,11 @@ import time
 import unittest
 
 from ai.common.co_test_handler_fixture import CoTestHandlerFixture
-from rs.calculator.enums.card_id import CardId
-from rs.calculator.interfaces.memory_items import MemoryItem, ResetSchedule, StanceType
-from rs.common.handlers.common_battle_handler import CommonBattleHandler
-from rs.game.card import CardType
-from rs.machine.the_bots_memory_book import TheBotsMemoryBook
+from heartslayer.calculator.enums.card_id import CardId
+from heartslayer.calculator.interfaces.memory_items import MemoryItem, ResetSchedule, StanceType
+from heartslayer.common.handlers.common_battle_handler import CommonBattleHandler
+from heartslayer.game.card import CardType
+from heartslayer.machine.the_bots_memory_book import TheBotsMemoryBook
 from test_helpers.resources import load_resource_state
 
 

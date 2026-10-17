@@ -1,5 +1,5 @@
 from ai.common.co_test_handler_fixture import CoTestHandlerFixture
-from rs.common.handlers.common_transform_handler import CommonTransformHandler
+from heartslayer.common.handlers.common_transform_handler import CommonTransformHandler
 
 
 class TestPurgeHandler(CoTestHandlerFixture):

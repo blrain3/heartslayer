@@ -1,5 +1,5 @@
 from ai.observant_heartslayer.oh_test_handler_fixture import OhTestHandlerFixture
-from rs.common.handlers.common_map_handler import CommonMapHandler
+from heartslayer.common.handlers.common_map_handler import CommonMapHandler
 
 
 class MapHandlerTestCase(OhTestHandlerFixture):

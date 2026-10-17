@@ -15,7 +15,7 @@ purely from the choice_list the event hands us.
 """
 import unittest
 
-from rs.common.handlers.common_event_handler import match_and_keep_choice
+from heartslayer.common.handlers.common_event_handler import match_and_keep_choice
 
 
 # Existing Round-2 regression tests use reconstructed boards, not a full game-state replay.

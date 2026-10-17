@@ -1,9 +1,9 @@
 from calculator.calculator_test_fixture import CalculatorTestFixture
-from rs.calculator.cards import get_card
-from rs.calculator.enums.card_id import CardId
-from rs.calculator.enums.orb_id import OrbId
-from rs.calculator.enums.power_id import PowerId
-from rs.calculator.interfaces.memory_items import MemoryItem
+from heartslayer.calculator.cards import get_card
+from heartslayer.calculator.enums.card_id import CardId
+from heartslayer.calculator.enums.orb_id import OrbId
+from heartslayer.calculator.enums.power_id import PowerId
+from heartslayer.calculator.interfaces.memory_items import MemoryItem
 
 
 class CalculatorCardsTest(CalculatorTestFixture):

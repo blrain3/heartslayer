@@ -1,10 +1,10 @@
-from rs.common.comparators.core.comparisons import least_time_warp_risk  # noqa: F401 (RED step)
+from heartslayer.common.comparators.core.comparisons import least_time_warp_risk  # noqa: F401 (RED step)
 from calculator.calculator_test_fixture import CalculatorTestFixture
-from rs.calculator.enums.card_id import CardId
-from rs.calculator.enums.power_id import PowerId
-from rs.common.comparators.common_general_comparator import CommonGeneralComparator
-from rs.common.comparators.core.assessment import ComparatorAssessment
-from rs.common.comparators.core.comparisons import avoid_inconvenient_time_warp
+from heartslayer.calculator.enums.card_id import CardId
+from heartslayer.calculator.enums.power_id import PowerId
+from heartslayer.common.comparators.common_general_comparator import CommonGeneralComparator
+from heartslayer.common.comparators.core.assessment import ComparatorAssessment
+from heartslayer.common.comparators.core.comparisons import avoid_inconvenient_time_warp
 
 
 class TimeWarpHorizonTest(CalculatorTestFixture):
@@ -36,7 +36,7 @@ class TimeWarpHorizonTest(CalculatorTestFixture):
             self.assertEqual(0, a.time_warp_horizon())
 
     def test_horizon_takes_the_minimum_across_monsters(self):
-        from rs.calculator.monster import Monster
+        from heartslayer.calculator.monster import Monster
         a = self.given_assessment()
         extra = Monster(False, 100, 100, 0, {}, name="Second")
         a.state.monsters.append(extra)

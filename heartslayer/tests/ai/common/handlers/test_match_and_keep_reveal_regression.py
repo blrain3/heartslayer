@@ -1,7 +1,7 @@
 """Replay Match and Keep choice lists captured from a Chinese A1 run."""
 import unittest
 
-from rs.common.handlers.common_event_handler import match_and_keep_choice
+from heartslayer.common.handlers.common_event_handler import match_and_keep_choice
 
 
 # Captured from 2026-09-23-13-02-15--NI5X0FGD1WW1.log. The first two cards had

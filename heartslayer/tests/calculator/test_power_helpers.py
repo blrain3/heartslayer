@@ -1,6 +1,6 @@
 from calculator.calculator_test_fixture import CalculatorTestFixture
-from rs.calculator.powers import get_power_count
-from rs.calculator.enums.power_id import PowerId
+from heartslayer.calculator.powers import get_power_count
+from heartslayer.calculator.enums.power_id import PowerId
 
 
 class CalculatorPowersHelperTest(CalculatorTestFixture):

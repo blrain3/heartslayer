@@ -1,5 +1,5 @@
 from ai.common.co_test_handler_fixture import CoTestHandlerFixture
-from rs.common.handlers.common_scry_handler import CommonScryHandler
+from heartslayer.common.handlers.common_scry_handler import CommonScryHandler
 
 
 class TestScryHandler(CoTestHandlerFixture):

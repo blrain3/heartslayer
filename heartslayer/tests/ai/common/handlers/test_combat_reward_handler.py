@@ -1,5 +1,5 @@
 from ai.common.co_test_handler_fixture import CoTestHandlerFixture
-from rs.common.handlers.common_combat_reward_handler import CommonCombatRewardHandler
+from heartslayer.common.handlers.common_combat_reward_handler import CommonCombatRewardHandler
 
 
 class CombatRewardHandlerTestCase(CoTestHandlerFixture):

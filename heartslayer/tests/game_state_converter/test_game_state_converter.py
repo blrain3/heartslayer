@@ -1,6 +1,6 @@
 import unittest
 
-from rs.game.event import Event
+from heartslayer.game.event import Event
 from test_helpers.resources import load_resource_state
 
 

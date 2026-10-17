@@ -1,5 +1,5 @@
 from ai.common.co_test_handler_fixture import CoTestHandlerFixture
-from rs.ai._example.handlers.shop_purchase_handler import ShopPurchaseHandler
+from heartslayer.ai._example.handlers.shop_purchase_handler import ShopPurchaseHandler
 
 
 class ShopPurchaseHandlerTestCase(CoTestHandlerFixture):

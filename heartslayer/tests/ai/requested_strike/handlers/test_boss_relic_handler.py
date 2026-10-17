@@ -1,5 +1,5 @@
 from ai.requested_strike.rs_test_handler_fixture import RsTestHandlerFixture
-from rs.ai.requested_strike.handlers.boss_relic_handler import BossRelicHandler
+from heartslayer.ai.requested_strike.handlers.boss_relic_handler import BossRelicHandler
 
 
 class BossRelicHandlerTestCase(RsTestHandlerFixture):

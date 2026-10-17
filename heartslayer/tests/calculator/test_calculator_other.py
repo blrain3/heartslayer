@@ -1,11 +1,11 @@
 from calculator.calculator_test_fixture import CalculatorTestFixture
-from rs.calculator.cards import get_card
-from rs.calculator.enums.card_id import CardId
-from rs.calculator.enums.power_id import PowerId
-from rs.calculator.enums.relic_id import RelicId
-from rs.calculator.executor import get_best_battle_path
-from rs.calculator.interfaces.memory_items import MemoryItem, StanceType
-from rs.common.comparators.common_general_comparator import CommonGeneralComparator
+from heartslayer.calculator.cards import get_card
+from heartslayer.calculator.enums.card_id import CardId
+from heartslayer.calculator.enums.power_id import PowerId
+from heartslayer.calculator.enums.relic_id import RelicId
+from heartslayer.calculator.executor import get_best_battle_path
+from heartslayer.calculator.interfaces.memory_items import MemoryItem, StanceType
+from heartslayer.common.comparators.common_general_comparator import CommonGeneralComparator
 from test_helpers.resources import load_resource_state
 
 

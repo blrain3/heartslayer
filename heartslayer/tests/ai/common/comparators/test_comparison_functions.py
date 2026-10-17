@@ -1,9 +1,9 @@
 from calculator.calculator_test_fixture import CalculatorTestFixture
-from rs.calculator.enums.card_id import CardId
-from rs.calculator.enums.power_id import PowerId
-from rs.common.comparators.common_general_comparator import CommonGeneralComparator
-from rs.common.comparators.core.assessment import ComparatorAssessment
-from rs.common.comparators.core.comparisons import avoid_inconvenient_time_warp, least_incoming_damage_over_1
+from heartslayer.calculator.enums.card_id import CardId
+from heartslayer.calculator.enums.power_id import PowerId
+from heartslayer.common.comparators.common_general_comparator import CommonGeneralComparator
+from heartslayer.common.comparators.core.assessment import ComparatorAssessment
+from heartslayer.common.comparators.core.comparisons import avoid_inconvenient_time_warp, least_incoming_damage_over_1
 
 
 class FakeAssessment:

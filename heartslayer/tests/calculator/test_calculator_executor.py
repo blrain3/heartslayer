@@ -1,7 +1,7 @@
 import unittest
 
-from rs.calculator.executor import get_discard_commands, get_exhaust_commands
-from rs.calculator.battle_state import PLAY_DISCARD, PLAY_EXHAUST
+from heartslayer.calculator.executor import get_discard_commands, get_exhaust_commands
+from heartslayer.calculator.battle_state import PLAY_DISCARD, PLAY_EXHAUST
 
 
 class CalculatorExecutorTestCase(unittest.TestCase):

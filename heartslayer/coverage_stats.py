@@ -1,7 +1,7 @@
-from rs.calculator.enums.card_id import CardId
-from rs.calculator.enums.power_id import PowerId
-from rs.calculator.enums.relic_id import RelicId
-from rs.machine.character import Character
+from heartslayer.calculator.enums.card_id import CardId
+from heartslayer.calculator.enums.power_id import PowerId
+from heartslayer.calculator.enums.relic_id import RelicId
+from heartslayer.machine.character import Character
 
 characters_implemented = len(Character)
 cards_implemented = len(CardId)

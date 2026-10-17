@@ -1,19 +1,19 @@
 import unittest
 from typing import List, Tuple
 
-from rs.calculator.cards import get_card
-from rs.calculator.enums.card_id import CardId
-from rs.calculator.battle_state import BattleState
-from rs.calculator.enums.orb_id import OrbId
-from rs.calculator.enums.relic_id import RelicId
-from rs.calculator.interfaces.memory_items import StanceType, MemoryItem
-from rs.calculator.interfaces.potions import Potions
-from rs.calculator.play_path import PlayPath, get_paths
-from rs.calculator.enums.power_id import PowerId
-from rs.calculator.interfaces.relics import Relics
-from rs.calculator.player import Player
-from rs.calculator.monster import Monster
-from rs.machine.the_bots_memory_book import TheBotsMemoryBook
+from heartslayer.calculator.cards import get_card
+from heartslayer.calculator.enums.card_id import CardId
+from heartslayer.calculator.battle_state import BattleState
+from heartslayer.calculator.enums.orb_id import OrbId
+from heartslayer.calculator.enums.relic_id import RelicId
+from heartslayer.calculator.interfaces.memory_items import StanceType, MemoryItem
+from heartslayer.calculator.interfaces.potions import Potions
+from heartslayer.calculator.play_path import PlayPath, get_paths
+from heartslayer.calculator.enums.power_id import PowerId
+from heartslayer.calculator.interfaces.relics import Relics
+from heartslayer.calculator.player import Player
+from heartslayer.calculator.monster import Monster
+from heartslayer.machine.the_bots_memory_book import TheBotsMemoryBook
 
 
 class CalculatorTestFixture(unittest.TestCase):

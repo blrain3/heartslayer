@@ -1,5 +1,5 @@
 from ai.requested_strike.rs_test_handler_fixture import RsTestHandlerFixture
-from rs.ai.requested_strike.handlers.upgrade_handler import UpgradeHandler
+from heartslayer.ai.requested_strike.handlers.upgrade_handler import UpgradeHandler
 
 
 class TestUpgradeHandler(RsTestHandlerFixture):

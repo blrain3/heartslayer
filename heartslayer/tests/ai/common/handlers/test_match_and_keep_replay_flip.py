@@ -8,7 +8,7 @@ and the current one on the exact screens the log contained.
 """
 import unittest
 
-from rs.common.handlers.common_event_handler import match_and_keep_choice
+from heartslayer.common.handlers.common_event_handler import match_and_keep_choice
 
 # Verbatim choice_lists from 10XDXJRPAI4XR.log floor 41 (the `card`-bearing screens).
 LOGGED_CARD_SCREENS = [

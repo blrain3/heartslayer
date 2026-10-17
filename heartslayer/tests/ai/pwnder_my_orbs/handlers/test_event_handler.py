@@ -1,5 +1,5 @@
 from ai.pwnder_my_orbs.pmo_test_handler_fixture import PmoTestHandlerFixture
-from rs.ai.pwnder_my_orbs.handlers.event_handler import EventHandler
+from heartslayer.ai.pwnder_my_orbs.handlers.event_handler import EventHandler
 
 
 class TestEventHandler(PmoTestHandlerFixture):

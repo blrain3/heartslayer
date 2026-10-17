@@ -1,5 +1,5 @@
 from ai.peaceful_pummeling.pp_test_handler_fixture import PpTestHandlerFixture
-from rs.ai.peaceful_pummeling.handlers.event_handler import EventHandler
+from heartslayer.ai.peaceful_pummeling.handlers.event_handler import EventHandler
 
 
 class TestEventHandler(PpTestHandlerFixture):

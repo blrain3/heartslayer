@@ -1,5 +1,5 @@
 from ai.common.co_test_handler_fixture import CoTestHandlerFixture
-from rs.ai._example.handlers.upgrade_handler import UpgradeHandler
+from heartslayer.ai._example.handlers.upgrade_handler import UpgradeHandler
 
 
 class TestUpgradeHandler(CoTestHandlerFixture):

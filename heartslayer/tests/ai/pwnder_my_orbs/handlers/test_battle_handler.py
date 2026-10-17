@@ -1,7 +1,7 @@
 import unittest
 
 from ai.pwnder_my_orbs.pmo_test_handler_fixture import PmoTestHandlerFixture
-from rs.common.handlers.common_battle_handler import CommonBattleHandler
+from heartslayer.common.handlers.common_battle_handler import CommonBattleHandler
 
 
 class BattleHandlerTestCase(PmoTestHandlerFixture):

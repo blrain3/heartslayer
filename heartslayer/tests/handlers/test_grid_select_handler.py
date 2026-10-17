@@ -3,7 +3,7 @@
 import pytest
 from unittest.mock import MagicMock
 
-from rs.common.handlers.common_grid_select_handler import CommonGridSelectHandler
+from heartslayer.common.handlers.common_grid_select_handler import CommonGridSelectHandler
 
 
 def create_mock_state(choices, num_cards=2, selected_count=0, for_transform=False):

@@ -20,7 +20,7 @@ class TestMatchAndKeepValueRanking(unittest.TestCase):
     """Unit level: match_and_keep_choice() with strategy value data."""
 
     def _choice(self, choices, desired=None, deck=None):
-        from rs.common.handlers.common_event_handler import match_and_keep_choice
+        from heartslayer.common.handlers.common_event_handler import match_and_keep_choice
         return match_and_keep_choice(
             choices,
             cards_desired_for_deck=desired if desired is not None else {},
@@ -76,8 +76,8 @@ class TestMatchAndKeepHandlerUsesStrategyData(unittest.TestCase):
     """Integration: the handler must actually pass strategy data down."""
 
     def _state(self, event_id, event_name, choice_list, options):
-        from rs.machine.state import GameState
-        from rs.machine.the_bots_memory_book import TheBotsMemoryBook
+        from heartslayer.machine.state import GameState
+        from heartslayer.machine.the_bots_memory_book import TheBotsMemoryBook
 
         state_dict = {
             "available_commands": ["choose", "wait", "state"],
@@ -110,7 +110,7 @@ class TestMatchAndKeepHandlerUsesStrategyData(unittest.TestCase):
     def test_handler_passes_desired_and_deck_data(self):
         from unittest import mock
 
-        from rs.common.handlers.common_event_handler import CommonEventHandler
+        from heartslayer.common.handlers.common_event_handler import CommonEventHandler
 
         # Strategy wants talk to the hand; the event offers judgement first.
         state = self._state(
@@ -118,7 +118,7 @@ class TestMatchAndKeepHandlerUsesStrategyData(unittest.TestCase):
         )
         handler = CommonEventHandler([], {"talk to the hand": 1})
         with mock.patch(
-            "rs.common.handlers.common_event_handler.match_and_keep_choice",
+            "heartslayer.common.handlers.common_event_handler.match_and_keep_choice",
             return_value=1,
         ) as patched:
             action = handler.handle(state)
@@ -134,7 +134,7 @@ class TestMatchAndKeepHandlerUsesStrategyData(unittest.TestCase):
     def test_handler_resolves_event_choice_only_once(self):
         from unittest import mock
 
-        from rs.common.handlers.common_event_handler import CommonEventHandler
+        from heartslayer.common.handlers.common_event_handler import CommonEventHandler
 
         state = self._state("Match and Keep!", "????", ["card0", "card1"], self._opts(2))
         handler = CommonEventHandler([], {})

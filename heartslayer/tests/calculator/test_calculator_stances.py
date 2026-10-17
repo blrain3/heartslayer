@@ -1,9 +1,9 @@
 from calculator.calculator_test_fixture import CalculatorTestFixture
-from rs.calculator.cards import get_card
-from rs.calculator.enums.card_id import CardId
-from rs.calculator.enums.power_id import PowerId
-from rs.calculator.enums.relic_id import RelicId
-from rs.calculator.interfaces.memory_items import StanceType, MemoryItem
+from heartslayer.calculator.cards import get_card
+from heartslayer.calculator.enums.card_id import CardId
+from heartslayer.calculator.enums.power_id import PowerId
+from heartslayer.calculator.enums.relic_id import RelicId
+from heartslayer.calculator.interfaces.memory_items import StanceType, MemoryItem
 
 
 class CalculatorStancesTest(CalculatorTestFixture):

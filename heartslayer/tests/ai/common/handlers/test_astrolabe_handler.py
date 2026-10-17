@@ -1,5 +1,5 @@
 from ai.common.co_test_handler_fixture import CoTestHandlerFixture
-from rs.common.handlers.common_astrolabe_handler import CommonAstrolabeHandler
+from heartslayer.common.handlers.common_astrolabe_handler import CommonAstrolabeHandler
 
 
 class TestAstrolabeHandler(CoTestHandlerFixture):

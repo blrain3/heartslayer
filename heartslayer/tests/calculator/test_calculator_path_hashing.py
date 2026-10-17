@@ -1,6 +1,6 @@
 from calculator.calculator_test_fixture import CalculatorTestFixture
-from rs.calculator.cards import get_card
-from rs.calculator.enums.card_id import CardId
+from heartslayer.calculator.cards import get_card
+from heartslayer.calculator.enums.card_id import CardId
 
 
 class CalculatorOtherTest(CalculatorTestFixture):

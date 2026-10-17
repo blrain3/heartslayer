@@ -1,7 +1,7 @@
 from calculator.calculator_test_fixture import CalculatorTestFixture
-from rs.calculator.enums.card_id import CardId
-from rs.calculator.enums.potion_id import PotionId
-from rs.calculator.enums.relic_id import RelicId
+from heartslayer.calculator.enums.card_id import CardId
+from heartslayer.calculator.enums.potion_id import PotionId
+from heartslayer.calculator.enums.relic_id import RelicId
 
 
 class CalculatorPotionsTest(CalculatorTestFixture):

@@ -1,11 +1,11 @@
-"""Wedge-guard tests for rs.api.client.Client (no real mod process involved)."""
+"""Wedge-guard tests for heartslayer.api.client.Client (no real mod process involved)."""
 import io
 import os
 import sys
 import unittest
 from unittest import mock
 
-from rs.api import client as client_mod
+from heartslayer.api import client as client_mod
 
 
 class TestClientWedge(unittest.TestCase):

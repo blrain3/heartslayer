@@ -1,5 +1,5 @@
 from ai.shivs_and_giggles.sg_test_handler_fixture import SgTestHandlerFixture
-from rs.ai.shivs_and_giggles.handlers.card_reward_handler import CardRewardHandler
+from heartslayer.ai.shivs_and_giggles.handlers.card_reward_handler import CardRewardHandler
 
 
 class CardRewardHandlerTestCase(SgTestHandlerFixture):

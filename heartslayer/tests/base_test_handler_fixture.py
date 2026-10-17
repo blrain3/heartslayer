@@ -1,9 +1,9 @@
 import unittest
 from typing import List, Type
 
-from rs.machine.handlers.handler import Handler
-from rs.machine.handlers.handler_action import HandlerAction
-from rs.machine.the_bots_memory_book import TheBotsMemoryBook
+from heartslayer.machine.handlers.handler import Handler
+from heartslayer.machine.handlers.handler_action import HandlerAction
+from heartslayer.machine.the_bots_memory_book import TheBotsMemoryBook
 from test_helpers.resources import load_resource_state
 
 

@@ -3,16 +3,19 @@ requires = ["flit_core>=3.9"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "heartslayer-kit"
+name = "heartslayer"
 version = "0.1.0"
-description = "Operations & verification toolkit for bottled_ai OBSERVANT_HEARTSLAYER batches."
+description = "Standalone Watcher bot for Slay the Spire — three keys → Act 4 → Corrupt Heart."
 readme = "README.md"
 license = { file = "LICENSE" }
+authors = [{ name = "blrain", email = "helloblrain@gmail.com" }]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "spirecomm>=0.3",
+]
 
 [project.scripts]
-check-shops = "heartslayer_kit.check_shops:main"
+check-shops = "scripts.check-shops:main"
 
 [tool.flit.module]
-name = "heartslayer_kit"
+name = "scripts.check-shops"

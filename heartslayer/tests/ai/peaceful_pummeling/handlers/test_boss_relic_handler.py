@@ -1,5 +1,5 @@
 from ai.peaceful_pummeling.pp_test_handler_fixture import PpTestHandlerFixture
-from rs.ai.peaceful_pummeling.handlers.boss_relic_handler import BossRelicHandler
+from heartslayer.ai.peaceful_pummeling.handlers.boss_relic_handler import BossRelicHandler
 
 
 class BossRelicHandlerTestCase(PpTestHandlerFixture):

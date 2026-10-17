@@ -1,8 +1,8 @@
 import unittest
 
 from ai.requested_strike.rs_test_handler_fixture import RsTestHandlerFixture
-from rs.ai.requested_strike.handlers.potions_handler import PotionsEliteHandler, PotionsBossHandler
-from rs.common.handlers.common_battle_handler import CommonBattleHandler
+from heartslayer.ai.requested_strike.handlers.potions_handler import PotionsEliteHandler, PotionsBossHandler
+from heartslayer.common.handlers.common_battle_handler import CommonBattleHandler
 
 
 class PotionsHandlerTestCase(RsTestHandlerFixture):

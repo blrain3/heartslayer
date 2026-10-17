@@ -1,5 +1,5 @@
 from ai.common.co_test_handler_fixture import CoTestHandlerFixture
-from rs.ai._example.handlers.event_handler import EventHandler
+from heartslayer.ai._example.handlers.event_handler import EventHandler
 
 
 class TestEventHandler(CoTestHandlerFixture):

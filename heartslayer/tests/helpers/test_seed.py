@@ -1,6 +1,6 @@
 import unittest
 
-from rs.helper.seed import get_seed_string, make_seed_string_number
+from heartslayer.helper.seed import get_seed_string, make_seed_string_number
 
 
 class SeedTestCase(unittest.TestCase):

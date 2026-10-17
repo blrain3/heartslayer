@@ -1,5 +1,5 @@
 from ai.common.co_test_handler_fixture import CoTestHandlerFixture
-from rs.common.handlers.common_boss_relic_handler import CommonBossRelicHandler
+from heartslayer.common.handlers.common_boss_relic_handler import CommonBossRelicHandler
 
 
 class BossRelicHandlerTestCase(CoTestHandlerFixture):

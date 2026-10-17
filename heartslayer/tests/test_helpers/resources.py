@@ -1,8 +1,8 @@
 import json
 
 from definitions import ROOT_DIR
-from rs.machine.state import GameState
-from rs.machine.the_bots_memory_book import TheBotsMemoryBook
+from heartslayer.machine.state import GameState
+from heartslayer.machine.the_bots_memory_book import TheBotsMemoryBook
 
 
 def load_resource_state(state_path: str, memory_book: TheBotsMemoryBook = None) -> GameState:

@@ -1,13 +1,13 @@
 import unittest
 import pickle
 
-from rs.calculator.enums.card_id import CardId
-from rs.calculator.enums.potion_id import PotionId
-from rs.calculator.enums.power_id import PowerId
-from rs.calculator.enums.relic_id import RelicId
-from rs.calculator.game_state_converter import create_battle_state, battlestate_deepcopy
-from rs.calculator.interfaces.memory_items import MemoryItem
-from rs.machine.orb import Orb
+from heartslayer.calculator.enums.card_id import CardId
+from heartslayer.calculator.enums.potion_id import PotionId
+from heartslayer.calculator.enums.power_id import PowerId
+from heartslayer.calculator.enums.relic_id import RelicId
+from heartslayer.calculator.game_state_converter import create_battle_state, battlestate_deepcopy
+from heartslayer.calculator.interfaces.memory_items import MemoryItem
+from heartslayer.machine.orb import Orb
 from test_helpers.resources import load_resource_state
 
 

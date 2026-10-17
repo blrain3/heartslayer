@@ -20,7 +20,7 @@ from the choice_list contents the event hands us on each screen.
 """
 import unittest
 
-from rs.common.handlers.common_event_handler import match_and_keep_choice
+from heartslayer.common.handlers.common_event_handler import match_and_keep_choice
 
 
 def face_down(cl):

@@ -11,10 +11,10 @@ list, this test fails.
 import os
 import unittest
 
-from rs.common.handlers.common_battle_handler import CommonBattleHandler
-from rs.common.comparators.big_fight_comparator import BigFightComparator
-from rs.common.comparators.time_eater_comparator import TimeEaterComparator
-from rs.machine.state import GameState
+from heartslayer.common.handlers.common_battle_handler import CommonBattleHandler
+from heartslayer.common.comparators.big_fight_comparator import BigFightComparator
+from heartslayer.common.comparators.time_eater_comparator import TimeEaterComparator
+from heartslayer.machine.state import GameState
 
 FIXTURE_DIR = "tests/res/battles"
 
@@ -28,7 +28,7 @@ class ComparatorSelectionTest(unittest.TestCase):
         path = os.path.join(FIXTURE_DIR, rel_path)
         self.assertTrue(os.path.exists(path), f"missing fixture {path}")
         import json
-        from rs.machine.the_bots_memory_book import TheBotsMemoryBook
+        from heartslayer.machine.the_bots_memory_book import TheBotsMemoryBook
         with open(path, encoding="utf-8") as fh:
             return GameState(json.load(fh), TheBotsMemoryBook.new_default())
 
@@ -54,8 +54,8 @@ class ComparatorSelectionTest(unittest.TestCase):
                          "TimeEaterComparator must add exactly one comparison")
 
     def test_time_eater_comparator_keeps_every_original_comparison_in_order(self):
-        from rs.common.comparators.common_general_comparator import add_to_comparison_list
-        from rs.common.comparators.core.comparisons import least_time_warp_risk
+        from heartslayer.common.comparators.common_general_comparator import add_to_comparison_list
+        from heartslayer.common.comparators.core.comparisons import least_time_warp_risk
         expected = BigFightComparator().comparisons.copy()
         add_to_comparison_list(expected, comparison_to_add=least_time_warp_risk,
                               after=self._avoid_warp())
@@ -67,12 +67,12 @@ class ComparatorSelectionTest(unittest.TestCase):
         self.assertNotIn("least_time_warp_risk", self._names(BigFightComparator().comparisons))
 
     def test_default_comparisons_list_is_untouched(self):
-        from rs.common.comparators.common_general_comparator import default_comparisons
+        from heartslayer.common.comparators.common_general_comparator import default_comparisons
         self.assertNotIn("least_time_warp_risk", self._names(default_comparisons))
 
     @staticmethod
     def _avoid_warp():
-        from rs.common.comparators.core.comparisons import avoid_inconvenient_time_warp
+        from heartslayer.common.comparators.core.comparisons import avoid_inconvenient_time_warp
         return avoid_inconvenient_time_warp
 
     @staticmethod

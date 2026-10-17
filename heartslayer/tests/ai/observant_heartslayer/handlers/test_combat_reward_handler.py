@@ -1,5 +1,5 @@
 from ai.observant_heartslayer.oh_test_handler_fixture import OhTestHandlerFixture
-from rs.common.handlers.common_combat_reward_handler import CommonCombatRewardHandler
+from heartslayer.common.handlers.common_combat_reward_handler import CommonCombatRewardHandler
 
 
 class CombatRewardHandlerTestCase(OhTestHandlerFixture):

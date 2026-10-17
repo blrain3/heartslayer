@@ -2,16 +2,16 @@ import os
 import time
 import traceback
 
-from rs.ai.claw_is_law.claw_is_law import CLAW_IS_LAW
-from rs.ai.peaceful_pummeling.peaceful_pummeling import PEACEFUL_PUMMELING
-from rs.ai.observant_heartslayer.observant_heartslayer import OBSERVANT_HEARTSLAYER  # 碎心模式（三钥匙 + act4）
-from rs.ai.pwnder_my_orbs.pwnder_my_orbs import PWNDER_MY_ORBS
-from rs.ai.requested_strike.requested_strike import REQUESTED_STRIKE
-from rs.ai.shivs_and_giggles.shivs_and_giggles import SHIVS_AND_GIGGLES
-from rs.helper.seed import make_random_seed
-from rs.api.client import Client
-from rs.machine.game import Game
-from rs.helper.logger import log, init_log, log_new_run_sequence
+from heartslayer.ai.claw_is_law.claw_is_law import CLAW_IS_LAW
+from heartslayer.ai.peaceful_pummeling.peaceful_pummeling import PEACEFUL_PUMMELING
+from heartslayer.ai.observant_heartslayer.observant_heartslayer import OBSERVANT_HEARTSLAYER  # 碎心模式（三钥匙 + act4）
+from heartslayer.ai.pwnder_my_orbs.pwnder_my_orbs import PWNDER_MY_ORBS
+from heartslayer.ai.requested_strike.requested_strike import REQUESTED_STRIKE
+from heartslayer.ai.shivs_and_giggles.shivs_and_giggles import SHIVS_AND_GIGGLES
+from heartslayer.helper.seed import make_random_seed
+from heartslayer.api.client import Client
+from heartslayer.machine.game import Game
+from heartslayer.helper.logger import log, init_log, log_new_run_sequence
 
 # If there are run seeds, it will run them. Otherwise, it will use the run amount.
 run_seeds = [

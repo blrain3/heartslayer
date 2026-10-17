@@ -1,5 +1,5 @@
 from ai.pwnder_my_orbs.pmo_test_handler_fixture import PmoTestHandlerFixture
-from rs.ai.pwnder_my_orbs.handlers.card_reward_handler import CardRewardHandler
+from heartslayer.ai.pwnder_my_orbs.handlers.card_reward_handler import CardRewardHandler
 
 
 class CardRewardHandlerTestCase(PmoTestHandlerFixture):

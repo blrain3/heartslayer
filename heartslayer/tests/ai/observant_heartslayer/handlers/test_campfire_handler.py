@@ -1,5 +1,5 @@
 from ai.observant_heartslayer.oh_test_handler_fixture import OhTestHandlerFixture
-from rs.common.handlers.common_campfire_handler import CommonCampfireHandler
+from heartslayer.common.handlers.common_campfire_handler import CommonCampfireHandler
 
 
 class CampfireHandlerTestCase(OhTestHandlerFixture):

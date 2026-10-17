@@ -1,5 +1,5 @@
 from ai.common.co_test_handler_fixture import CoTestHandlerFixture
-from rs.common.handlers.common_neow_handler import CommonNeowHandler
+from heartslayer.common.handlers.common_neow_handler import CommonNeowHandler
 
 
 class TestNeowHandler(CoTestHandlerFixture):

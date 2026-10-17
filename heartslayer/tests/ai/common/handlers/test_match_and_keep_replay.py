@@ -12,8 +12,8 @@ the log (the same lists the previous reproduction used, verified line by line).
 """
 import unittest
 
-from rs.ai.peaceful_pummeling.config import DESIRED_CARDS_FOR_DECK
-from rs.common.handlers.common_event_handler import match_and_keep_choice
+from heartslayer.ai.peaceful_pummeling.config import DESIRED_CARDS_FOR_DECK
+from heartslayer.common.handlers.common_event_handler import match_and_keep_choice
 
 # (floor, logger line, choice_list as seen by the bot) -- 13 real screens.
 SCREENS = [

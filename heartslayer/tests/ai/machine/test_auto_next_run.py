@@ -18,9 +18,9 @@ batch would stall. Point 3 documents main.py's contract without needing a live g
 import unittest
 from unittest import mock
 
-from rs.machine.default_game_over import DefaultGameOverHandler
-from rs.machine.state import GameState
-from rs.machine.the_bots_memory_book import TheBotsMemoryBook
+from heartslayer.machine.default_game_over import DefaultGameOverHandler
+from heartslayer.machine.state import GameState
+from heartslayer.machine.the_bots_memory_book import TheBotsMemoryBook
 
 
 def _state(game_over: bool, **overrides) -> GameState:
@@ -63,14 +63,14 @@ class TestGameOverHandlerContract(unittest.TestCase):
 
     def test_emits_exactly_one_proceed(self):
         h = DefaultGameOverHandler()
-        with mock.patch("rs.machine.default_game_over.log_missing_calculator_enums_to_run"), \
-             mock.patch("rs.machine.default_game_over.log_run_results"):
+        with mock.patch("heartslayer.machine.default_game_over.log_missing_calculator_enums_to_run"), \
+             mock.patch("heartslayer.machine.default_game_over.log_run_results"):
             cmds = h.handle(_state(game_over=True), [], [], "peaceful_pummeling")
         self.assertEqual(cmds, ["proceed"])
 
     def test_proceed_is_a_command_the_game_over_screen_offers(self):
         """Guards against emitting a command the screen cannot accept."""
-        from rs.machine.command import Command
+        from heartslayer.machine.command import Command
 
         state = _state(game_over=True)
         self.assertTrue(state.has_command(Command.PROCEED))
@@ -80,7 +80,7 @@ class TestBatchLoopContract(unittest.TestCase):
     """main.py's loop must start a new run for every finished one."""
 
     def test_start_and_run_alternate_once_per_iteration(self):
-        from rs.machine.game import Game
+        from heartslayer.machine.game import Game
 
         game = Game(mock.MagicMock(), mock.MagicMock())
         calls = []
@@ -98,7 +98,7 @@ class TestBatchLoopContract(unittest.TestCase):
         failure and run N+1 still starts. Without this, "auto next run" would actually
         mean "auto stop at the first problem".
         """
-        from rs.machine.game import Game
+        from heartslayer.machine.game import Game
 
         game = Game(mock.MagicMock(), mock.MagicMock())
         iterations = []
@@ -110,8 +110,8 @@ class TestBatchLoopContract(unittest.TestCase):
         started = []
         with mock.patch.object(Game, "start", side_effect=lambda s="": started.append(s)), \
              mock.patch.object(Game, "run", boom), \
-             mock.patch("rs.helper.logger.log"), \
-             mock.patch("rs.helper.logger.log_to_run"), \
+             mock.patch("heartslayer.helper.logger.log"), \
+             mock.patch("heartslayer.helper.logger.log_to_run"), \
              mock.patch("traceback.format_exc", return_value="trace"):
             try:
                 for _ in range(3):
@@ -131,7 +131,7 @@ class TestBatchLoopContract(unittest.TestCase):
         not ready -- re-creating the Game (as main.py does) can recover it. Both start and
         run sit inside the same per-run try.
         """
-        from rs.machine.game import Game
+        from heartslayer.machine.game import Game
 
         game = Game(mock.MagicMock(), mock.MagicMock())
         started = []
@@ -142,8 +142,8 @@ class TestBatchLoopContract(unittest.TestCase):
 
         with mock.patch.object(Game, "start", bad_start), \
              mock.patch.object(Game, "run"), \
-             mock.patch("rs.helper.logger.log"), \
-             mock.patch("rs.helper.logger.log_to_run"), \
+             mock.patch("heartslayer.helper.logger.log"), \
+             mock.patch("heartslayer.helper.logger.log_to_run"), \
              mock.patch("traceback.format_exc", return_value="trace"):
             for _ in range(3):
                 try:
