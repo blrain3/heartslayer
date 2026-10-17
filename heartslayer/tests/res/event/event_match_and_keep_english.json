@@ -1,0 +1,123 @@
+{
+ "available_commands": [
+  "choose",
+  "wait",
+  "state"
+ ],
+ "ready_for_command": true,
+ "in_game": true,
+ "game_state": {
+  "choice_list": [
+   "normality",
+   "deep breath",
+   "card2",
+   "card3",
+   "card4",
+   "card5",
+   "card6",
+   "card7",
+   "card8",
+   "card9",
+   "card10",
+   "card11"
+  ],
+  "screen_type": "EVENT",
+  "screen_state": {
+   "event_id": "Match and Keep!",
+   "event_name": "Match and Keep!",
+   "body_text": "",
+   "options": [
+    {
+     "choice_index": 0,
+     "disabled": false,
+     "text": "Normality",
+     "label": "Normality"
+    },
+    {
+     "choice_index": 1,
+     "disabled": false,
+     "text": "Deep Breath",
+     "label": "Deep Breath"
+    },
+    {
+     "choice_index": 2,
+     "disabled": false,
+     "text": "card2",
+     "label": "card2"
+    },
+    {
+     "choice_index": 3,
+     "disabled": false,
+     "text": "card3",
+     "label": "card3"
+    },
+    {
+     "choice_index": 4,
+     "disabled": false,
+     "text": "card4",
+     "label": "card4"
+    },
+    {
+     "choice_index": 5,
+     "disabled": false,
+     "text": "card5",
+     "label": "card5"
+    },
+    {
+     "choice_index": 6,
+     "disabled": false,
+     "text": "card6",
+     "label": "card6"
+    },
+    {
+     "choice_index": 7,
+     "disabled": false,
+     "text": "card7",
+     "label": "card7"
+    },
+    {
+     "choice_index": 8,
+     "disabled": false,
+     "text": "card8",
+     "label": "card8"
+    },
+    {
+     "choice_index": 9,
+     "disabled": false,
+     "text": "card9",
+     "label": "card9"
+    },
+    {
+     "choice_index": 10,
+     "disabled": false,
+     "text": "card10",
+     "label": "card10"
+    },
+    {
+     "choice_index": 11,
+     "disabled": false,
+     "text": "card11",
+     "label": "card11"
+    }
+   ]
+  },
+  "seed": 3426447116500222168,
+  "deck": [],
+  "relics": [],
+  "max_hp": 72,
+  "act_boss": "Hexaghost",
+  "gold": 119,
+  "action_phase": "WAITING_ON_USER",
+  "act": 1,
+  "screen_name": "NONE",
+  "room_phase": "EVENT",
+  "is_screen_up": false,
+  "potions": [],
+  "current_hp": 70,
+  "floor": 2,
+  "ascension_level": 0,
+  "class": "WATCHER",
+  "map": [],
+  "room_type": "EventRoom"
+ }
+}

@@ -1,0 +1,44 @@
+diff --git a/pom.xml b/pom.xml
+index 57be2da..390445f 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -53,7 +53,7 @@
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-shade-plugin</artifactId>
+-                <version>2.4.2</version>
++                <version>3.6.0</version>
+                 <executions>
+                     <execution>
+                         <id>CommunicationMod</id>
+diff --git a/src/main/java/communicationmod/ChoiceScreenUtils.java b/src/main/java/communicationmod/ChoiceScreenUtils.java
+index f9a648d..6554f7a 100644
+--- a/src/main/java/communicationmod/ChoiceScreenUtils.java
++++ b/src/main/java/communicationmod/ChoiceScreenUtils.java
+@@ -643,6 +643,9 @@ public class ChoiceScreenUtils {
+ 
+     public static void makeShopScreenChoice(int choice) {
+         ArrayList<Object> shopItems = getAvailableShopItems();
++        if (choice < 0 || choice >= shopItems.size()) {
++            throw new IllegalStateException("makeShopScreenChoice: index " + choice + " out of bounds (available=" + shopItems.size() + ")");
++        }
+         Object shopItem = shopItems.get(choice);
+         if (shopItem instanceof String) {
+             AbstractDungeon.previousScreen = AbstractDungeon.CurrentScreen.SHOP;
+diff --git a/src/main/java/communicationmod/CommunicationMod.java b/src/main/java/communicationmod/CommunicationMod.java
+index 375521e..5816193 100644
+--- a/src/main/java/communicationmod/CommunicationMod.java
++++ b/src/main/java/communicationmod/CommunicationMod.java
+@@ -101,6 +101,12 @@ public class CommunicationMod implements PostInitializeSubscriber, PostUpdateSub
+                 jsonError.put("ready_for_command", GameStateListener.isWaitingForCommand());
+                 Gson gson = new Gson();
+                 sendMessage(gson.toJson(jsonError));
++            } catch (Exception e) {
++                // Hardening: any unexpected exception must never leave the bot blocked
++                // with no reply. Log it and force a state update so the client can continue.
++                logger.error("Unhandled exception while executing command; forcing a state update to avoid a silent deadlock.", e);
++                e.printStackTrace();
++                mustSendGameState = true;
+             }
+         }
+     }
