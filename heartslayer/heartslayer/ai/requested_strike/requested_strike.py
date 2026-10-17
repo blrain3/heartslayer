@@ -1,0 +1,61 @@
+from typing import List
+
+from heartslayer.ai.requested_strike.config import CARD_REMOVAL_PRIORITY_LIST, DESIRED_CARDS_FOR_DECK, HIGH_PRIORITY_UPGRADES, \
+    DESIRED_POTIONS
+from heartslayer.ai.requested_strike.handlers.boss_relic_handler import BossRelicHandler
+from heartslayer.ai.requested_strike.handlers.event_handler import EventHandler
+from heartslayer.ai.requested_strike.handlers.neow_handler import NeowHandler
+from heartslayer.ai.requested_strike.handlers.potions_handler import PotionsBossHandler, PotionsEventFightHandler, \
+    PotionsEliteHandler
+from heartslayer.ai.requested_strike.handlers.shop_purchase_handler import ShopPurchaseHandler
+from heartslayer.ai.requested_strike.handlers.upgrade_handler import UpgradeHandler
+from heartslayer.common.handlers.common_astrolabe_handler import CommonAstrolabeHandler
+from heartslayer.common.handlers.common_battle_handler import CommonBattleHandler
+from heartslayer.common.handlers.common_campfire_handler import CommonCampfireHandler
+from heartslayer.common.handlers.card_reward.common_card_reward_handler import CommonCardRewardHandler
+from heartslayer.common.handlers.common_chest_handler import CommonChestHandler
+from heartslayer.common.handlers.common_combat_reward_handler import CommonCombatRewardHandler
+from heartslayer.common.handlers.common_grid_select_handler import CommonGridSelectHandler
+from heartslayer.common.handlers.common_mass_discard_handler import CommonMassDiscardHandler
+from heartslayer.common.handlers.common_map_handler import CommonMapHandler
+from heartslayer.common.handlers.common_purge_handler import CommonPurgeHandler
+from heartslayer.common.handlers.common_scry_handler import CommonScryHandler
+from heartslayer.common.handlers.common_shop_entrance_handler import CommonShopEntranceHandler
+from heartslayer.common.handlers.common_transform_handler import CommonTransformHandler
+from heartslayer.machine.ai_strategy import AiStrategy
+from heartslayer.machine.character import Character
+from heartslayer.machine.handlers.handler import Handler
+
+requested_strike_custom_battle_handlers: List[Handler] = [
+    # Potions Handlers First
+    PotionsBossHandler(),
+    PotionsEventFightHandler(),
+    PotionsEliteHandler(),
+]
+
+REQUESTED_STRIKE: AiStrategy = AiStrategy(
+    name='REQUESTED_STRIKE',
+    character=Character.IRONCLAD,
+    handlers=requested_strike_custom_battle_handlers + [
+        CommonAstrolabeHandler(CARD_REMOVAL_PRIORITY_LIST),
+        CommonBattleHandler(),
+
+        # General Stuff
+        BossRelicHandler(),
+        UpgradeHandler(),
+        CommonTransformHandler(CARD_REMOVAL_PRIORITY_LIST),
+        CommonGridSelectHandler(CARD_REMOVAL_PRIORITY_LIST),
+        CommonPurgeHandler(CARD_REMOVAL_PRIORITY_LIST),
+        CommonCombatRewardHandler(desired_potions=DESIRED_POTIONS),
+        CommonCardRewardHandler(DESIRED_CARDS_FOR_DECK),
+        NeowHandler(),
+        EventHandler(removal_priority_list=CARD_REMOVAL_PRIORITY_LIST, cards_desired_for_deck=DESIRED_CARDS_FOR_DECK),
+        CommonChestHandler(),
+        CommonMapHandler(),
+        CommonCampfireHandler(HIGH_PRIORITY_UPGRADES, CARD_REMOVAL_PRIORITY_LIST),
+        CommonShopEntranceHandler(),
+        ShopPurchaseHandler(),
+        CommonMassDiscardHandler(),
+        CommonScryHandler(),
+    ]
+)

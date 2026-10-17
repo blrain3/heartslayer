@@ -1,10 +1,8 @@
-# heartslayer-kit
+# heartslayer
 
-Operations & verification toolkit for **bottled_ai**'s `OBSERVANT_HEARTSLAYER` batches — driving the Watcher bot through the three keys → Act 4 → Corrupt Heart.
+Standalone Watcher bot for **Slay the Spire** — three keys → Act 4 → Corrupt Heart.
 
 Guarded batch launch, run watching, stall self-healing, and offline decision verification, extracted from the project that achieved the first heart kill.
-
-> **Companion toolkit, not a standalone bot.** This repo orchestrates and verifies a [bottled_ai](https://github.com/xaved88/bottled_ai) setup — it does **not** include the bot, the game mods, or the game. `scripts/` drives a *running* Steam + ModTheSpire + CommunicationMod + bottled_ai chain (and reads the run logs that bottled_ai writes); `tools/` imports the bottled_ai codebase directly (`rs.*`, including the `OBSERVANT_HEARTSLAYER` strategy from the `verify-localization-fix` fork branch). Pulling only this repo gives you the tooling layer — the bot itself still comes from bottled_ai.
 
 > **Milestone** — first Corrupt Heart kill: 2026-10-05, seed `5N2LLKFRVCE5`, floor 56 / score 1180, 8-turn fight with zero idle turns.
 
@@ -13,9 +11,10 @@ Guarded batch launch, run watching, stall self-healing, and offline decision ver
 ## Layout
 
 ```
-scripts/   ops scripts (cross-referencing; keep them in the same directory)
-tools/     analysis / verification scripts (import rs.* — run from the bottled_ai repo root)
-docs/      batch archives (kill report, analysis dossiers, incident reports; Chinese)
+heartslayer/   bot engine + strategies (migrated from bottled_ai)
+scripts/       ops scripts (guarded launch, watchdogs, status)
+tools/         offline analysis (replay, comparator, shop audit)
+docs/          batch archives (kill report, analysis, incidents; Chinese)
 ```
 
 ## Highlights
@@ -26,21 +25,19 @@ docs/      batch archives (kill report, analysis dossiers, incident reports; Chi
 
 ## Requirements
 
-Dependency checklist:
-
-- [ ] Python 3.11+ and Bash
-- [ ] Linux desktop with a Hyprland session, `grim`, `tesseract` + `tesseract-data-eng`, `xdotool`, and a systemd user session
-- [ ] Steam logged in (`Logged On` in `connection_log.txt`; AutoLogin works)
-- [ ] [ModTheSpire](https://github.com/kiooeht/ModTheSpire), [CommunicationMod](https://github.com/ForgottenArbiter/CommunicationMod), and a [bottled_ai](https://github.com/xaved88/bottled_ai) checkout
-
-The Python package has no runtime dependencies. Install it with `python3 -m pip install -e .` to add the `check-shops` command.
+- Python 3.11+, Bash, `git`
+- Linux desktop with a Hyprland session, `grim`, `tesseract` + `tesseract-data-eng`, `xdotool`, and a systemd user session
+- Steam logged in (`Logged On` in `connection_log.txt`; AutoLogin works)
+- [ModTheSpire](https://github.com/kiooeht/ModTheSpire), [CommunicationMod](https://github.com/ForgottenArbiter/CommunicationMod)
+- Install Python deps: `python3 -m pip install -e .`
 
 Tested on CachyOS/Arch. Other setups work in principle — adjust the display/OCR chain and the environment variables below.
 
 ## Verification
 
 ```bash
-bash -n scripts/*.sh && python3 -m compileall scripts tools
+bash -n scripts/*.sh
+python3 -m compileall heartslayer scripts tools
 python3 scripts/check-shops.py --help
 ```
 
@@ -69,13 +66,12 @@ tail -f scripts/milestones.log
 
 ### tools/ — offline analysis
 
-Run from the `bottled_ai` repo root (they `import rs.*`):
+Run from this repo root (they `import heartslayer.*`):
 
 ```bash
-cd ~/projects/bottled_ai
-python3 /path/to/tools/verify_live_run.py logs/runs/<run>.log
-python3 /path/to/tools/replay_decision.py logs/runs/<run>.log 2     # decision index
-python3 /path/to/tools/sim_batch_clean.py                           # old-vs-new comparator sweep
+python3 tools/verify_live_run.py logs/runs/<run>.log
+python3 tools/replay_decision.py logs/runs/<run>.log 2     # decision index
+python3 tools/sim_batch_clean.py                           # old-vs-new comparator sweep
 ```
 
 | Tool | Purpose |
@@ -88,9 +84,26 @@ python3 /path/to/tools/sim_batch_clean.py                           # old-vs-new
 | `verify_file_version.py` | Historical case study (paired trace + synthetic cases) for the comparator fix |
 
 
-## Tools prerequisites
+## Bot setup
 
-All `tools/` scripts import the `rs.*` codebase directly. Run them from the root of a [bottled_ai](https://github.com/xaved88/bottled_ai) checkout that includes the `OBSERVANT_HEARTSLAYER` strategy (the `verify-localization-fix` branch on `blrain3/bottled_ai` carries the required ports and comparator fixes).
+1. Clone this repo into the game's install folder, in a new folder: `~/Steam/steamapps/common/SlayTheSpire/heartslayer`
+2. Get/subscribe these mods via the Steam Workshop:
+   - [BaseMod](https://steamcommunity.com/sharedfiles/filedetails/?id=1605833019)
+   - [StSLib](https://steamcommunity.com/sharedfiles/filedetails/?id=1609158507)
+   - [ModTheSpire](https://steamcommunity.com/sharedfiles/filedetails/?id=1605060445)
+   - [Communication Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2131373661)
+3. Run the game with the mods enabled — this will create your spire mod config files.
+4. Navigate to your CommunicationMod folder. On Linux it is typically `~/.local/share/ModTheSpire/`
+5. Modify `config.properties` in the CommunicationMod folder:
+   - Add `command=python3 ./heartslayer/main.py`
+
+Run the bot from the game's main menu:
+- → Mods
+- → Communication Mod
+- → Config (next to "Return")
+- → Start external process
+
+You can configure run settings in [main.py](main.py).
 
 ## Environment variables
 

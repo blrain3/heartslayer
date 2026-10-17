@@ -23,17 +23,17 @@ def _exit_with_status_2(exc_type, exc, traceback):
 sys.excepthook = _exit_with_status_2
 
 import json, re, glob
-from rs.machine.state import GameState
-from rs.machine.the_bots_memory_book import TheBotsMemoryBook
-from rs.calculator.interfaces.memory_items import MemoryItem, ResetSchedule, StanceType
-from rs.game.card import CardType
-from rs.calculator.enums.card_id import CardId
-from rs.calculator.enums.power_id import PowerId
-from rs.calculator.game_state_converter import create_battle_state
-from rs.calculator.play_path import get_paths_bfs
-from rs.ai.observant_heartslayer.comparators.heart_fight_comparator import HeartFightComparator
-from rs.common.comparators.big_fight_comparator import BigFightComparator
-from rs.common.comparators.core.assessment import ComparatorAssessment as CA
+from heartslayer.machine.state import GameState
+from heartslayer.machine.the_bots_memory_book import TheBotsMemoryBook
+from heartslayer.calculator.interfaces.memory_items import MemoryItem, ResetSchedule, StanceType
+from heartslayer.game.card import CardType
+from heartslayer.calculator.enums.card_id import CardId
+from heartslayer.calculator.enums.power_id import PowerId
+from heartslayer.calculator.game_state_converter import create_battle_state
+from heartslayer.calculator.play_path import get_paths_bfs
+from heartslayer.ai.observant_heartslayer.comparators.heart_fight_comparator import HeartFightComparator
+from heartslayer.common.comparators.big_fight_comparator import BigFightComparator
+from heartslayer.common.comparators.core.assessment import ComparatorAssessment as CA
 
 
 def make_bs(lines, resp_i, mem):
@@ -70,7 +70,7 @@ def main():
 
     print()
     print('=== 3) 合成用例 ===')
-    from rs.ai.observant_heartslayer.comparators.heart_fight_comparator import trade_hp_for_damage
+    from heartslayer.ai.observant_heartslayer.comparators.heart_fight_comparator import trade_hp_for_damage
     class Fake:
         def __init__(s, inc, dmg): s.i, s.d = inc, dmg
         def incoming_damage(s): return s.i

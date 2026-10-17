@@ -22,18 +22,18 @@ def _exit_with_status_2(exc_type, exc, traceback):
 sys.excepthook = _exit_with_status_2
 
 import json, re, glob
-from rs.machine.state import GameState
-from rs.machine.the_bots_memory_book import TheBotsMemoryBook
-from rs.calculator.interfaces.memory_items import MemoryItem, ResetSchedule, StanceType
-from rs.game.card import CardType
-from rs.calculator.enums.card_id import CardId
-from rs.calculator.enums.power_id import PowerId
-from rs.calculator.game_state_converter import create_battle_state
-from rs.calculator.play_path import get_paths_bfs
-import rs.common.comparators.big_fight_comparator as bfc
-from rs.common.comparators.big_fight_comparator import BigFightComparator
-from rs.common.comparators.core.comparisons import least_incoming_damage_over_1
-from rs.common.comparators.core.assessment import ComparatorAssessment as CA
+from heartslayer.machine.state import GameState
+from heartslayer.machine.the_bots_memory_book import TheBotsMemoryBook
+from heartslayer.calculator.interfaces.memory_items import MemoryItem, ResetSchedule, StanceType
+from heartslayer.game.card import CardType
+from heartslayer.calculator.enums.card_id import CardId
+from heartslayer.calculator.enums.power_id import PowerId
+from heartslayer.calculator.game_state_converter import create_battle_state
+from heartslayer.calculator.play_path import get_paths_bfs
+import heartslayer.common.comparators.big_fight_comparator as bfc
+from heartslayer.common.comparators.big_fight_comparator import BigFightComparator
+from heartslayer.common.comparators.core.comparisons import least_incoming_damage_over_1
+from heartslayer.common.comparators.core.assessment import ComparatorAssessment as CA
 
 
 def trade_hp_for_damage(best, challenger, budget):
