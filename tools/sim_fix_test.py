@@ -1,6 +1,27 @@
 #!/usr/bin/env python3
-"""在离线回放上模拟验证候选修复：允许小额生命换击杀进度 (预算5)。"""
-import json, sys, re, glob
+"""在离线回放上模拟验证候选修复：允许小额生命换击杀进度 (预算5)。
+
+用法:
+    python3 sim_fix_test.py
+"""
+import argparse
+import sys
+
+_parser = argparse.ArgumentParser(description='Simulate candidate comparator fixes on saved decisions.')
+_parser.parse_args()
+
+
+def _exit_with_status_2(exc_type, exc, traceback):
+    if issubclass(exc_type, KeyboardInterrupt):
+        sys.__excepthook__(exc_type, exc, traceback)
+        return
+    print(f'{exc_type.__name__}: {exc}', file=sys.stderr)
+    sys.exit(2)
+
+
+sys.excepthook = _exit_with_status_2
+
+import json, re, glob
 from rs.machine.state import GameState
 from rs.machine.the_bots_memory_book import TheBotsMemoryBook
 from rs.calculator.interfaces.memory_items import MemoryItem, ResetSchedule, StanceType
@@ -14,12 +35,14 @@ from rs.common.comparators.big_fight_comparator import BigFightComparator
 from rs.common.comparators.core.comparisons import least_incoming_damage_over_1
 from rs.common.comparators.core.assessment import ComparatorAssessment as CA
 
+
 def trade_hp_for_damage(best, challenger, budget):
     bi, ci = best.incoming_damage(), challenger.incoming_damage()
     bd, cd = best.total_monster_health(), challenger.total_monster_health()
     if abs(bi - ci) <= budget and bd != cd:
         return cd < bd
     return None
+
 
 def replay(f, end_idx, mode):
     lines = open(f, encoding='utf-8', errors='replace').read().splitlines()
@@ -52,14 +75,27 @@ def replay(f, end_idx, mode):
     return dict(plays=plays, hp=st.player.current_hp, hearthp=None, inc=CA(st, bs, cmp.assessment_config).incoming_damage(),
                 energy=st.player.energy)
 
-targets = [('logs/runs/2026-10-05-15-25-16--XDMVJN66WFC7.log', 2),
-           ('logs/runs/2026-10-05-15-58-44--W3G8QK9L95XW.log', 1),
-           ('logs/runs/2026-10-05-15-50-44--5W8JLWDU1LYS.log', 1),
-           ('logs/runs/2026-10-05-15-50-44--5W8JLWDU1LYS.log', 2),
-           ('logs/runs/2026-10-05-15-50-44--5W8JLWDU1LYS.log', 3)]
-for f, e in targets:
-    name = f.split('--')[1][:12]
-    for mode in ['orig', 'fix5', 'fix8']:
-        r = replay(f, e, mode)
-        print(f"{name} end#{e} [{mode}]: 出牌={r['plays']} | 净损失={r['inc']} | 余能={r['energy']}")
-    print()
+
+def main():
+    if len(sys.argv) > 1 and sys.argv[1] in ('--help', '-h'):
+        print(__doc__)
+        sys.exit(0)
+    targets = [('logs/runs/2026-10-05-15-25-16--XDMVJN66WFC7.log', 2),
+               ('logs/runs/2026-10-05-15-58-44--W3G8QK9L95XW.log', 1),
+               ('logs/runs/2026-10-05-15-50-44--5W8JLWDU1LYS.log', 1),
+               ('logs/runs/2026-10-05-15-50-44--5W8JLWDU1LYS.log', 2),
+               ('logs/runs/2026-10-05-15-50-44--5W8JLWDU1LYS.log', 3)]
+    for f, e in targets:
+        name = f.split('--')[1][:12]
+        for mode in ['orig', 'fix5', 'fix8']:
+            r = replay(f, e, mode)
+            print(f"{name} end#{e} [{mode}]: 出牌={r['plays']} | 净损失={r['inc']} | 余能={r['energy']}")
+        print()
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except Exception as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+        sys.exit(2)

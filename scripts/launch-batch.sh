@@ -5,7 +5,12 @@
 #   STEAM_DIR   Steam 根目录（默认 ~/.local/share/Steam）
 #   STS_DIR     游戏目录、MTS_JAR / CM_JAR  workshop 内路径
 #   EXPECT_CM_SHA  加固版 CM jar 指纹（换版本后同步更新）
-set -u
+set -euo pipefail
+if [ "${1:-}" = "--help" ] || [ "${1:-}" = "-h" ]; then
+  echo "Usage: $0 [RUN_AMOUNT=15] [--dry-run]"
+  echo "  --dry-run   exercise all five launch gates without starting anything"
+  exit 0
+fi
 RA=${1:-15}; DRY=0; [ "${2:-}" = "--dry-run" ] && DRY=1
 P="$(cd "$(dirname "$0")" && pwd)"
 STEAM="${STEAM_DIR:-$HOME/.local/share/Steam}"

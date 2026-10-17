@@ -3,6 +3,12 @@
 # 用法（launch-batch 会以 heart-watch 单元自动拉起；默认输出到本脚本所在目录）:
 #   BOTTLED_REPO=~/projects/bottled_ai BOTTLED_WATCH_OUT=/some/dir ./watch-milestones.sh
 # 事件列表可按需增删（k:grep模式 对）。
+set -euo pipefail
+if [ "${1:-}" = "--help" ] || [ "${1:-}" = "-h" ]; then
+  echo "Usage: $0"
+  echo "  Long-lived watcher that logs milestone events to milestones.log."
+  exit 0
+fi
 P="${BOTTLED_WATCH_OUT:-$(cd "$(dirname "$0")" && pwd)}"
 R="${BOTTLED_REPO:-$HOME/projects/bottled_ai}"
 M=$P/milestones.log

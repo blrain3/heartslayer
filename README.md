@@ -33,6 +33,13 @@ docs/      batch archives (kill report, analysis dossiers, incident reports; Chi
 
 Tested on CachyOS/Arch. Other setups work in principle — adjust the display/OCR chain and the environment variables below.
 
+## Verification
+
+```bash
+bash -n scripts/*.sh
+python3 -m compileall scripts tools
+```
+
 ## Usage
 
 ### scripts/ — batch operations

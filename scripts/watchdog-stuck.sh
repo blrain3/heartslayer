@@ -3,6 +3,12 @@
 # 用法: ./watchdog-stuck.sh [--once]
 #   --once  只做一次判定（用于演练/自检），不进入循环
 # 环境: BOTTLED_REPO(默认 ~/projects/bottled_ai) / THRESH / INTERVAL / MAX_RECOVERIES
+set -euo pipefail
+if [ "${1:-}" = "--help" ] || [ "${1:-}" = "-h" ]; then
+  echo "Usage: $0 [--once]"
+  echo "  --once   perform one check and exit without entering the watch loop"
+  exit 0
+fi
 P="$(cd "$(dirname "$0")" && pwd)"
 R="${BOTTLED_REPO:-$HOME/projects/bottled_ai}"
 LOG=$P/watchdog.log

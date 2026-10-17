@@ -5,3 +5,13 @@ logs/
 milestones.log
 watchdog.log
 recoveries
+*.swp
+.DS_Store
+.idea/
+.vscode/
+
+# Editor / OS artifacts
+*.swp
+.DS_Store
+.idea/
+.vscode/

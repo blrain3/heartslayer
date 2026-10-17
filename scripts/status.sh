@@ -1,6 +1,12 @@
 #!/bin/bash
 # bottled_ai 当前局一查（act/floor/keys/钥匙动作/心脏止点/victory + run_history 尾）。
 # 用法: BOTTLED_REPO=~/projects/bottled_ai bash status.sh
+set -euo pipefail
+if [ "${1:-}" = "--help" ] || [ "${1:-}" = "-h" ]; then
+  echo "Usage: $0"
+  echo "  Reads the latest run log from BOTTLED_REPO and prints status."
+  exit 0
+fi
 R="${BOTTLED_REPO:-$HOME/projects/bottled_ai}"
 [ -d "$R" ] || { echo "bottled_ai 仓库不存在: $R（用 BOTTLED_REPO=... 指定）"; exit 1; }
 cd "$R" || exit 1

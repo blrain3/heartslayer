@@ -75,4 +75,11 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    if len(sys.argv) > 1 and sys.argv[1] in ('--help', '-h'):
+        print(__doc__)
+        sys.exit(0)
+    try:
+        main()
+    except Exception as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+        sys.exit(2)

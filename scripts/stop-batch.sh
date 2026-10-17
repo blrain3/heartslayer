@@ -1,5 +1,11 @@
 #!/bin/bash
-# 碎心批次安全停止：bot → 游戏（MTS + Steam 接管的 jre）→ user units
+# 碎心批次安全停止：bot → 游戏（MTS + Steam 接管的 jre） → user units
+set -euo pipefail
+if [ "${1:-}" = "--help" ] || [ "${1:-}" = "-h" ]; then
+  echo "Usage: $0 [--all]"
+  echo "  --all   also stop the stuck-watch unit"
+  exit 0
+fi
 export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
 pkill -TERM -f "bottled_ai/main.py" 2>/dev/null && echo "bot TERM" || echo "bot 已不在"
 sleep 3
